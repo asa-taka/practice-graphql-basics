@@ -1,0 +1,31 @@
+module.exports = `
+type TodoEntry {
+  id: ID!
+  title: String!
+  detail: String!
+}
+
+input TodoInput {
+  title: String!
+  detail: String!
+}
+
+type Query {
+  todos: [TodoEntry!]!
+  todo(id: ID!): TodoEntry!
+}
+
+type Mutation {
+  createToDo(input: TodoInput!): TodoEntry!
+}
+
+type Subscription {
+  todoCreated: TodoEntry!
+}
+
+schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}
+`
